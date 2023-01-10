@@ -1,33 +1,35 @@
 {% load static %}
 <section id="testimonial" class="testimonial section-padding">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div id="testimonials" class="owl-carousel wow fadeInUp" data-wow-delay="1.2s">
+  <div class="container">
+    <div class="row justify-content-center">
+      <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Nossos Clientes</h2>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div id="testimonials" class="owl-carousel wow fadeInUp" data-wow-delay="1.2s">
 
-            {% for c in clientes %}
-            <div class="item">
-              <div class="testimonial-item">
-                <div class="img-thumb">
-                  <img class="img-fluid" src="{{ c.imagem.thumb.url }}" alt="">
-                </div>
-                <div class="info">
-                  <h2><a href="#">{{ c.cliente }}</a></h2>                  
-                </div>
-                <div class="content">
-                  <p class="description">Todos São número um</p>
-                  <div class="star-icon mt-3">
-                    <span><i class="lni-star-filled"></i></span>
-                    <span><i class="lni-star-filled"></i></span>
-                    <span><i class="lni-star-filled"></i></span>
-                    <span><i class="lni-star-filled"></i></span>
-                    <span><i class="lni-star-half"></i></span>
-                  </div>
-                </div>
+        {% for c in clientes %}
+        <div class="item">
+          <div class="testimonial-item">
+            <div class="img-thumb">
+              <img src="{{ c.imagem.thumb.url }}" alt="{{ c.cliente }}">
+            </div>
+            <div class="info">
+              <h2><a href="#">{{ c.cliente }}</a></h2>              
+            </div>
+            <div class="content">
+              <p class="description">{{ c.bio }}</p>
+              <div class="star-icon mt-3">
+                <span><i class="lni-star-filled"></i></span>
+                <span><i class="lni-star-filled"></i></span>
+                <span><i class="lni-star-filled"></i></span>
+                <span><i class="lni-star-filled"></i></span>
+                <span><i class="lni-star-half"></i></span>
               </div>
             </div>
-            {% endfor %}
+          </div>
         </div>
+        {% endfor %}        
+       </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

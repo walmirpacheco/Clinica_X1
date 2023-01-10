@@ -14,3 +14,5 @@ class FuncionarioAdmin(admin.ModelAdmin):
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('cliente', 'ativo', 'modificado')    
 
+   
+

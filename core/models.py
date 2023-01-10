@@ -27,10 +27,11 @@ class Cargo(Base):
 
 class Funcionario(Base):
 
-    nome = models.CharField('Nome', max_length=100)        
+    nome = models.CharField('Nome', max_length=100)
+    endereco = models.CharField('Endereço', max_length=150, null=True, blank=False)        
     cargo = models.ForeignKey('core.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
     bio = models.TextField('Bio', max_length=200)
-    imagem = StdImageField('Imagem', upload_to='get_file_path', variations={'thumb':{'width': 480, 'height': 480, 'crop': True}})
+    imagem = StdImageField('Imagem', upload_to='get_file_path', variations={'thumb': {'width': 480, 'height': 480, 'crop': True}})
     tel01 = models.CharField('Celular', max_length=60, null=True, blank=False)
     tel02 = models.CharField('Tel. Residencial', max_length=60, null=True, blank=False)       
     facebook = models.CharField('Facebook', max_length=100, default='#')
@@ -43,13 +44,15 @@ class Funcionario(Base):
 
     def __str__(self):
         return self.nome 
-
+        
 class Cliente(Base):
 
-    cliente = models.CharField('Nome', max_length=100)              
-    imagem = StdImageField('Imagem', upload_to='get_file_path', variations={'thumb':{'width': 480, 'height': 480, 'crop': True}})
+    cliente = models.CharField('Nome', max_length=100)     
+    endereco = models.CharField('Endereço', max_length=150, null=True, blank=False)
+    bio = models.TextField('Bio', max_length=200, null=True, blank=False)
+    imagem = StdImageField('Imagem', upload_to='get_file_path', variations={'thumb': {'width': 75, 'height': 75, 'crop': True}})
     tel01 = models.CharField('Celular', max_length=60, null=True, blank=False)
-    tel02 = models.CharField('Tel. Residencial', max_length=60, null=True, blank=False)           
+    tel02 = models.CharField('Tel. Residencial', max_length=60, null=True, blank=False)       
     facebook = models.CharField('Facebook', max_length=100, default='#')
     twitter = models.CharField('Twitter', max_length=100, default='#')
     instagram = models.CharField('Instagram', max_length=100, default='#')
@@ -59,4 +62,5 @@ class Cliente(Base):
         verbose_name_plural = 'Clientes'
 
     def __str__(self):
-        return self.cliente                      
+        return self.cliente        
+                     
