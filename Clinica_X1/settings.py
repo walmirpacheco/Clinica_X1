@@ -77,6 +77,19 @@ WSGI_APPLICATION = 'Clinica_X1.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Clinica_X1',
+        'USER': 'root',
+        'PASSWORD': 'Atecubanos',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+"""
+# USAR ESSA DATABASE QUANDO USAR O "POSTGRESQL"
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Clinica_X1',
         'USER': 'postgres',
@@ -85,7 +98,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
